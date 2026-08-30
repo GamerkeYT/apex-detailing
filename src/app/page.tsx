@@ -2,24 +2,9 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Check, Phone, Sparkles, Star, Send } from "lucide-react";
+import { business } from "@/data/business";
 
-const services = [
-  {
-    title: "Exterior Detail",
-    price: "€79",
-    description: "Deep clean, wheels, tires and a flawless finish.",
-  },
-  {
-    title: "Interior Detail",
-    price: "€99",
-    description: "Full interior clean with seats, carpets and dashboard.",
-  },
-  {
-    title: "Full Detail",
-    price: "€169",
-    description: "The complete inside and outside transformation.",
-  },
-];
+
 
 export default function Home() {
   return (
@@ -87,7 +72,7 @@ export default function Home() {
           >
             <div className="mb-6 flex items-center gap-2 text-sm uppercase tracking-[0.3em] text-zinc-300">
               <Sparkles size={16} />
-              Premium Automotive Care
+              {business.tagline}
             </div>
 
             <h1 className="text-5xl font-bold leading-[0.95] tracking-tight sm:text-7xl lg:text-8xl">
@@ -124,94 +109,68 @@ export default function Home() {
       {/* STATS */}
       <section className="border-y border-white/10 bg-[#0d0d0d]">
         <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-white/10 md:grid-cols-4">
-          {[
-            ["500+", "Cars Detailed"],
-            ["5.0", "Average Rating"],
-            ["8+", "Years Experience"],
-            ["100%", "Satisfaction"],
-          ].map(([number, label]) => (
-            <div key={label} className="px-6 py-10 text-center">
-              <div className="text-3xl font-bold">{number}</div>
-              <div className="mt-2 text-sm text-zinc-500">{label}</div>
-            </div>
-          ))}
-        </div>
+  {business.stats.map(([number, label]) => (
+    <div key={label} className="px-6 py-10 text-center">
+      <div className="text-3xl font-bold">{number}</div>
+      <div className="mt-2 text-sm text-zinc-500">{label}</div>
+    </div>
+  ))}
+</div>
       </section>
 
       {/* SERVICES */}
-      <section id="services" className="mx-auto max-w-7xl px-6 py-32">
-        <div className="mb-16 max-w-2xl">
-          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-zinc-500">
-            Our Services
-          </p>
+<section id="services" className="mx-auto max-w-7xl px-6 py-32">
+  <div className="mb-16 max-w-2xl">
+    <p className="mb-4 text-sm uppercase tracking-[0.3em] text-zinc-500">
+      Our Services
+    </p>
 
-          <h2 className="text-4xl font-bold sm:text-6xl">
-            SIMPLE.
-            <br />
-            <span className="text-zinc-500">THOROUGH.</span>
-          </h2>
+    <h2 className="text-4xl font-bold sm:text-6xl">
+      SIMPLE.
+      <br />
+      <span className="text-zinc-500">THOROUGH.</span>
+    </h2>
+  </div>
+
+  <div className="grid gap-6 md:grid-cols-3">
+    {business.services.map((service, index) => (
+      <motion.div
+        key={service.title}
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: index * 0.1 }}
+        className="group rounded-3xl border border-white/10 bg-white/[0.03] p-8 transition hover:border-white/25 hover:bg-white/[0.06]"
+      >
+        <div className="mb-12 flex items-start justify-between">
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-black">
+            <Sparkles size={20} />
+          </div>
+
+          <span className="text-2xl font-bold">
+            {service.price}
+          </span>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-3">
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    className="group relative overflow-hidden rounded-3xl md:col-span-2 md:row-span-2"
-  >
-    <img
-      src="/images/car-1.jpg"
-      alt="Premium car detailing"
-      className="h-full min-h-[500px] w-full object-cover transition duration-700 group-hover:scale-105"
-    />
+        <h3 className="text-2xl font-semibold">
+          {service.title}
+        </h3>
 
-    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-8 pt-24">
-      <p className="text-sm uppercase tracking-[0.25em] text-zinc-400">
-        Featured Detail
-      </p>
-      <h3 className="mt-2 text-2xl font-semibold">Full Exterior Detail</h3>
-    </div>
-  </motion.div>
+        <p className="mt-4 min-h-14 text-zinc-500">
+          {service.description}
+        </p>
 
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    className="group relative overflow-hidden rounded-3xl"
-  >
-    <img
-      src="/images/car-2.jpg"
-      alt="Car detailing"
-      className="h-full min-h-[240px] w-full object-cover transition duration-700 group-hover:scale-105"
-    />
-
-    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 pt-20">
-      <p className="text-sm uppercase tracking-[0.2em] text-zinc-400">
-        Exterior
-      </p>
-    </div>
-  </motion.div>
-
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    className="group relative overflow-hidden rounded-3xl"
-  >
-    <img
-      src="/images/car-3.jpg"
-      alt="Professional detailing"
-      className="h-full min-h-[240px] w-full object-cover transition duration-700 group-hover:scale-105"
-    />
-
-    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 pt-20">
-      <p className="text-sm uppercase tracking-[0.2em] text-zinc-400">
-        Paint Care
-      </p>
-    </div>
-  </motion.div>
-</div>
-      </section>
+        <a
+          href="#contact"
+          className="mt-8 flex items-center gap-2 text-sm font-semibold"
+        >
+          Book this service
+          <ArrowRight size={16} />
+        </a>
+      </motion.div>
+    ))}
+  </div>
+</section>
 
 {/* GALLERY */}
 <section
@@ -460,8 +419,8 @@ export default function Home() {
       {/* FOOTER */}
       <footer className="border-t border-white/10 px-6 py-8">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 text-sm text-zinc-600 sm:flex-row">
-          <span>© 2026 Apex Detailing</span>
-          <span>Premium Automotive Care</span>
+          <span>© 2026 {business.name}</span>
+          <span>{business.location}</span>
         </div>
       </footer>
     </main>
