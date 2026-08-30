@@ -329,12 +329,10 @@ export default function Home() {
       </div>
 
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          alert("Thanks! We'll contact you shortly.");
-        }}
-        className="rounded-3xl border border-white/10 bg-white/[0.03] p-6 sm:p-8"
-      >
+  action="https://formspree.io/f/myeykgew"
+  method="POST"
+  className="rounded-3xl border border-white/10 bg-white/[0.03] p-6 sm:p-8"
+>
         <div className="grid gap-5 sm:grid-cols-2">
 
           <div className="sm:col-span-2">
@@ -345,6 +343,7 @@ export default function Home() {
             <input
               required
               type="text"
+              name="name"
               placeholder="Your name"
               className="w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-white outline-none transition placeholder:text-zinc-600 focus:border-white/30"
             />
@@ -358,6 +357,7 @@ export default function Home() {
             <input
               required
               type="email"
+              name="email"
               placeholder="you@example.com"
               className="w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-white outline-none transition placeholder:text-zinc-600 focus:border-white/30"
             />
@@ -370,6 +370,7 @@ export default function Home() {
 
             <input
               type="tel"
+              name="phone"
               placeholder="+32 ..."
               className="w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-white outline-none transition placeholder:text-zinc-600 focus:border-white/30"
             />
@@ -381,6 +382,7 @@ export default function Home() {
             </label>
 
             <select
+            name="service"
               className="w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-white outline-none"
             >
               <option>Exterior Detail</option>
@@ -396,6 +398,7 @@ export default function Home() {
             </label>
 
             <textarea
+              name="message"
               rows={4}
               placeholder="Tell us about your car..."
               className="w-full resize-none rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-white outline-none transition placeholder:text-zinc-600 focus:border-white/30"
