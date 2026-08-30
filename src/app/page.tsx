@@ -238,7 +238,7 @@ export default function Home() {
       className="md:col-span-2 md:row-span-2"
     >
       <img
-        src="/images/before.jpg"
+        src="/images/after.jpg"
         alt="Apex Detailing"
         className="h-full min-h-[400px] w-full rounded-3xl object-cover transition duration-700 hover:scale-[1.01]"
       />
@@ -251,7 +251,7 @@ export default function Home() {
       className="overflow-hidden rounded-3xl"
     >
       <img
-        src="/images/after.jpg"
+        src="/images/before.jpg"
         alt="Apex Detailing"
         className="h-full min-h-[250px] w-full object-cover transition duration-700 hover:scale-105"
       />
